@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Custom Snackbar -->
+    <dimen name="radius_warning_snackbar_background">2dp</dimen>
+
+    <!-- NearPlaces -->
+    <dimen name="padding_top_near_places_results">8dp</dimen>
+    <dimen name="padding_horizontal_near_places_results">10dp</dimen>
+    <dimen name="padding_bottom_near_places_results">36dp</dimen>
+    <dimen name="margin_horizontal_near_places_empty_state_title">80dp</dimen>
+    <dimen name="text_size_near_places_empty_state_title">26sp</dimen>
+    <dimen name="layout_width_near_places_paging_progress">24dp</dimen>
+    <dimen name="layout_height_near_places_paging_progress">24dp</dimen>
+    <dimen name="layout_width_near_places_empty_state_image">100dp</dimen>
+    <dimen name="layout_height_near_places_empty_state_image">100dp</dimen>
+
+    <!-- Item RV -->
+    <dimen name="margin_horizontal_item_place_image">16dp</dimen>
+    <dimen name="layout_margin_item_place_type">20dp</dimen>
+    <dimen name="text_size_item_place_type">14sp</dimen>
+    <dimen name="margin_top_item_place_root">8dp</dimen>
+    <dimen name="card_corner_radius_item_place_root">4dp</dimen>
+    <dimen name="card_elevation_item_place_root">2dp</dimen>
+    <dimen name="size_item_place_image">24dp</dimen>
+    <dimen name="min_width_item_place_image">100dp</dimen>
+</resources>

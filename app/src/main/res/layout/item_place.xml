@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.mariomartins.nearplaces.features.nearplaces.adapter.PlaceViewModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_horizontal_item_place_image"
+        android:layout_marginTop="@dimen/margin_top_item_place_root"
+        android:layout_marginEnd="@dimen/margin_horizontal_item_place_image"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="@dimen/card_corner_radius_item_place_root"
+        app:cardElevation="@dimen/card_elevation_item_place_root">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_item_place_icon"
+                error="@{ @drawable/icon_no_image }"
+                imageUrl="@{ viewModel.imageUrl }"
+                placeholder="@{ @drawable/icon_placeholder }"
+                android:layout_width="@dimen/size_item_place_image"
+                android:layout_height="@dimen/size_item_place_image"
+                android:layout_marginStart="16dp"
+                android:contentDescription="@string/item_place_image_description_text"
+                android:minWidth="@dimen/min_width_item_place_image"
+                android:scaleType="fitCenter"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/icon_placeholder" />
+
+            <TextView
+                android:id="@+id/tv_item_place_type"
+                toggleStatus="@{ viewModel.isOpen }"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/layout_margin_item_place_type"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="@dimen/layout_margin_item_place_type"
+                android:layout_marginBottom="40dp"
+                android:drawablePadding="8dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@{ viewModel.name }"
+                android:textSize="@dimen/text_size_item_place_type"
+                android:textStyle="bold"
+                app:drawableStartCompat="@drawable/selector_place_open_status"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toEndOf="@id/iv_item_place_icon"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:drawableTint="@color/colorPrimary"
+                tools:text="Restaurant Busanelo" />
+
+            <RatingBar
+                android:id="@+id/rb_item_place_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginTop="12dp"
+                android:rating="@{ viewModel.rating }"
+                android:scaleX="0.5"
+                android:scaleY="0.5"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_item_place_type" />
+
+            <View
+                goneUnless="@{ viewModel.noRating }"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginEnd="60dp"
+                android:background="@color/black_50"
+                app:layout_constraintVertical_bias="0.55"
+                app:layout_constraintTop_toTopOf="@id/rb_item_place_rating"
+                app:layout_constraintBottom_toBottomOf="@id/rb_item_place_rating"
+                app:layout_constraintStart_toStartOf="@id/rb_item_place_rating"
+                app:layout_constraintEnd_toEndOf="@id/rb_item_place_rating" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</layout>

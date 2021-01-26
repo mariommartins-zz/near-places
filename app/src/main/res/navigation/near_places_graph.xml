@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/near_places_graph"
+    app:startDestination="@id/near_places">
+
+    <!-- Search RV -->
+    <fragment
+        android:id="@+id/near_places"
+        android:name="com.mariomartins.nearplaces.features.nearplaces.NearPlacesFragment"
+        tools:layout="@layout/fragment_near_places" />
+</navigation>

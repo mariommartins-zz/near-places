@@ -1,0 +1,124 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'androidx.navigation.safeargs.kotlin'
+
+android {
+    compileSdkVersion build_versions.target_sdk
+    buildToolsVersion build_versions.build_tools
+
+    defaultConfig {
+        applicationId "com.mariomartins.nearplaces"
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField 'String', 'GOOGLE_PLACES_URL', '"https://maps.googleapis.com/maps/api/place/"'
+        buildConfigField 'String', 'GOOGLE_API_KEY', "${project.properties['GOOGLE_API_KEY']}"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Android Support
+    implementation deps.support.appcompat
+    implementation deps.support.constraintlayout
+    implementation deps.support.recyclerview
+    implementation deps.support.cardview
+    implementation deps.support.swiperefreshlayout
+
+    // KTX
+    implementation deps.ktx.core_ktx
+
+    // Kotlin
+    implementation deps.kotlin.stdlib
+    implementation deps.kotlin.test
+    implementation deps.kotlin.coroutines
+    implementation deps.kotlin.coroutines_core
+    testImplementation deps.kotlin.coroutines_test
+    androidTestImplementation deps.kotlin.coroutines_test
+
+    // Koin
+    implementation deps.koin.core
+    implementation deps.koin.android_scope
+    implementation deps.koin.android_viewmodel
+    testImplementation deps.koin.unit_test
+
+    // DataBinding
+    kapt deps.databinding
+
+    // Android Navigation
+    implementation deps.navigation.fragment
+    implementation deps.navigation.ui
+
+    // Paging
+    implementation deps.paging
+
+    // Glide
+    implementation deps.glide
+
+    // Material Design
+    implementation deps.material
+
+    // Material Design
+    implementation deps.play_services.core
+    implementation deps.play_services.location
+
+    // Lottie
+    implementation deps.lottie
+
+    // Retrofit
+    implementation deps.retrofit.runtime
+    implementation deps.retrofit.moshi_converter
+    implementation deps.retrofit.coroutine_adapter
+
+    // Moshi
+    implementation deps.moshi.kotlin
+
+    // Timber
+    implementation deps.timber
+
+    // Android Testing Support Library
+    androidTestImplementation deps.atsl.ext_junit
+    testImplementation deps.atsl.ext_junit
+    androidTestImplementation deps.atsl.runner
+    androidTestImplementation deps.atsl.rules
+    androidTestImplementation deps.atsl.core
+
+    // Mockito
+    testImplementation deps.mockito.core
+    testImplementation deps.mockito.kotlin
+    androidTestImplementation deps.mockito.core
+    androidTestImplementation deps.mockito.kotlin
+    androidTestImplementation deps.mockito.android
+
+    // Android Arch
+    testImplementation deps.arch_core.runtime
+    testImplementation deps.arch_core.testing
+
+    // Espresso UI Testing
+    androidTestImplementation deps.espresso.core
+}

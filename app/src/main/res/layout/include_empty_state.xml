@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="present"
+            type="Boolean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        goneUnless="@{ present }"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusableInTouchMode="true">
+
+        <TextView
+            android:id="@+id/empty_state_title_rv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_horizontal_near_places_empty_state_title"
+            android:gravity="center_horizontal"
+            android:text="@string/empty_state_title_text"
+            android:textColor="@color/lightGreen"
+            android:lines="1"
+            android:textSize="@dimen/text_size_near_places_empty_state_title"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/empty_state_image_iv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/empty_state_image_iv"
+            android:layout_width="@dimen/layout_width_near_places_empty_state_image"
+            android:layout_height="@dimen/layout_height_near_places_empty_state_image"
+            android:importantForAccessibility="no"
+            android:src="@drawable/icon_restaurant"
+            app:tint="@color/lightGreen"
+            app:layout_constraintVertical_bias="0.4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

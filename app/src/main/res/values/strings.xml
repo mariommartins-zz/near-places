@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">NearPlaces</string>
+
+    <!-- Empty State -->
+    <string name="empty_state_title_text">No results to show</string>
+
+    <!-- Warnings -->
+    <string name="network_error_text">No internet connection. Try again after checking your internet connection.</string>
+    <string name="generic_error_text">It was not possible to complete your request.</string>
+    <string name="location_error_text">It wasn\'t possible to retrieve your location</string>
+
+    <!-- Item Place -->
+    <string name="item_place_image_description_text">Place Icon</string>
+
+    <!-- Near Places -->
+    <string name="near_places_gps_dialog_title">GPS</string>
+    <string name="near_places_gps_dialog_body">Please turn on your GPS</string>
+    <string name="near_places_loaction_dialog_body">Please give location permission in order to see the near places list</string>
+    <string name="near_places_dialog_yes">Yes</string>
+    <string name="near_places_dialog_cancel">Cancel</string>
+
+    <string-array name="near_places_category_array">
+        <item>Bar</item>
+        <item>Cafe</item>
+        <item>Restaurant</item>
+    </string-array>
+</resources>
