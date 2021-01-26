@@ -1,4 +1,7 @@
 # Near Places
+![](https://github.com/mario-martins-ifood/near-places/blob/master/documentation/feature_demo.gif)
+
+## Libraries
 This project was made in Kotlin unsing AndroidX and uses the following libs (the major libs are in bold):
 - **Koin for dependency injection**
 - **Coroutines for multithreading**
