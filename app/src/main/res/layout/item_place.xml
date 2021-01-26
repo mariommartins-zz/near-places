@@ -13,10 +13,10 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_horizontal_item_place_image"
+        android:layout_marginHorizontal="@dimen/margin_horizontal_item_place_root"
         android:layout_marginTop="@dimen/margin_top_item_place_root"
-        android:layout_marginEnd="@dimen/margin_horizontal_item_place_image"
         android:backgroundTint="@color/white"
+        android:onClick="@{ () -> viewModel.onItemClicked() }"
         app:cardCornerRadius="@dimen/card_corner_radius_item_place_root"
         app:cardElevation="@dimen/card_elevation_item_place_root">
 
@@ -25,13 +25,13 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/iv_item_place_icon"
+                android:id="@+id/item_place_icon_iv"
                 error="@{ @drawable/icon_no_image }"
                 imageUrl="@{ viewModel.imageUrl }"
                 placeholder="@{ @drawable/icon_placeholder }"
                 android:layout_width="@dimen/size_item_place_image"
                 android:layout_height="@dimen/size_item_place_image"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="@dimen/margin_start_item_place_icon"
                 android:contentDescription="@string/item_place_image_description_text"
                 android:minWidth="@dimen/min_width_item_place_image"
                 android:scaleType="fitCenter"
@@ -41,15 +41,13 @@
                 tools:src="@drawable/icon_placeholder" />
 
             <TextView
-                android:id="@+id/tv_item_place_type"
+                android:id="@+id/item_place_type_tv"
                 toggleStatus="@{ viewModel.isOpen }"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/layout_margin_item_place_type"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="@dimen/layout_margin_item_place_type"
-                android:layout_marginBottom="40dp"
-                android:drawablePadding="8dp"
+                android:layout_marginHorizontal="@dimen/margin_horizontal_item_place_type"
+                android:layout_marginVertical="@dimen/margin_vertical_item_place_type"
+                android:drawablePadding="@dimen/drawable_padding_item_place_type"
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="@{ viewModel.name }"
@@ -57,37 +55,50 @@
                 android:textStyle="bold"
                 app:drawableStartCompat="@drawable/selector_place_open_status"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/item_place_arrow_iv"
                 app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintStart_toEndOf="@id/iv_item_place_icon"
+                app:layout_constraintStart_toEndOf="@id/item_place_icon_iv"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:drawableTint="@color/colorPrimary"
                 tools:text="Restaurant Busanelo" />
 
             <RatingBar
-                android:id="@+id/rb_item_place_rating"
+                android:id="@+id/item_place_rating_rb"
+                enabled="@{ false }"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="@dimen/margin_top_item_place_rating"
                 android:rating="@{ viewModel.rating }"
                 android:scaleX="0.5"
                 android:scaleY="0.5"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/tv_item_place_type" />
+                app:layout_constraintTop_toTopOf="@id/item_place_type_tv" />
 
             <View
+                enabled="@{ false }"
                 goneUnless="@{ viewModel.noRating }"
                 android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_marginStart="60dp"
-                android:layout_marginEnd="60dp"
+                android:layout_height="@dimen/layout_height_item_place_no_rating_indicator"
+                android:layout_marginHorizontal="@dimen/margin_horizontal_item_place_no_rating_indicator"
                 android:background="@color/black_50"
-                app:layout_constraintVertical_bias="0.55"
-                app:layout_constraintTop_toTopOf="@id/rb_item_place_rating"
-                app:layout_constraintBottom_toBottomOf="@id/rb_item_place_rating"
-                app:layout_constraintStart_toStartOf="@id/rb_item_place_rating"
-                app:layout_constraintEnd_toEndOf="@id/rb_item_place_rating" />
+                app:layout_constraintBottom_toBottomOf="@id/item_place_rating_rb"
+                app:layout_constraintEnd_toEndOf="@id/item_place_rating_rb"
+                app:layout_constraintStart_toStartOf="@id/item_place_rating_rb"
+                app:layout_constraintTop_toTopOf="@id/item_place_rating_rb"
+                app:layout_constraintVertical_bias="0.55" />
+
+            <ImageView
+                android:id="@+id/item_place_arrow_iv"
+                goneUnless="@{ viewModel.hasLocationContent }"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_end_item_place_arrow"
+                android:importantForAccessibility="no"
+                android:src="@drawable/icon_arrow_right"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 

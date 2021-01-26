@@ -8,20 +8,44 @@
     <dimen name="padding_top_near_places_results">8dp</dimen>
     <dimen name="padding_horizontal_near_places_results">10dp</dimen>
     <dimen name="padding_bottom_near_places_results">36dp</dimen>
-    <dimen name="margin_horizontal_near_places_empty_state_title">80dp</dimen>
-    <dimen name="text_size_near_places_empty_state_title">26sp</dimen>
     <dimen name="layout_width_near_places_paging_progress">24dp</dimen>
     <dimen name="layout_height_near_places_paging_progress">24dp</dimen>
+    <dimen name="margin_end_near_places_app_name">16dp</dimen>
+    <dimen name="text_size_near_places_app_name">16sp</dimen>
+    <dimen name="margin_end_near_places_categories">16dp</dimen>
+    <dimen name="margin_bottom_near_places_categories">8dp</dimen>
+
+    <!-- Empty State -->
+    <dimen name="margin_horizontal_near_places_empty_state_title">80dp</dimen>
+    <dimen name="text_size_near_places_empty_state_title">26sp</dimen>
     <dimen name="layout_width_near_places_empty_state_image">100dp</dimen>
     <dimen name="layout_height_near_places_empty_state_image">100dp</dimen>
 
+    <!-- Location Denied State -->
+    <dimen name="margin_horizontal_near_places_location_denied_state_title">80dp</dimen>
+    <dimen name="text_size_near_places_location_denied_state_title">26sp</dimen>
+    <dimen name="layout_width_near_places_location_denied_state_image">100dp</dimen>
+    <dimen name="layout_height_near_places_location_denied_state_image">100dp</dimen>
+
     <!-- Item RV -->
-    <dimen name="margin_horizontal_item_place_image">16dp</dimen>
-    <dimen name="layout_margin_item_place_type">20dp</dimen>
+    <dimen name="margin_horizontal_item_place_root">16dp</dimen>
+    <dimen name="margin_horizontal_item_place_type">16dp</dimen>
     <dimen name="text_size_item_place_type">14sp</dimen>
     <dimen name="margin_top_item_place_root">8dp</dimen>
     <dimen name="card_corner_radius_item_place_root">4dp</dimen>
     <dimen name="card_elevation_item_place_root">2dp</dimen>
     <dimen name="size_item_place_image">24dp</dimen>
     <dimen name="min_width_item_place_image">100dp</dimen>
+    <dimen name="margin_start_item_place_icon">16dp</dimen>
+    <dimen name="margin_vertical_item_place_type">40dp</dimen>
+    <dimen name="drawable_padding_item_place_type">8dp</dimen>
+    <dimen name="margin_top_item_place_rating">12dp</dimen>
+    <dimen name="layout_height_item_place_no_rating_indicator">1dp</dimen>
+    <dimen name="margin_horizontal_item_place_no_rating_indicator">60dp</dimen>
+    <dimen name="margin_end_item_place_arrow">16dp</dimen>
+
+    <!-- Show Place -->
+    <dimen name="margin_show_place_open_status">16dp</dimen>
+    <dimen name="text_size_show_place_open_status">12sp</dimen>
+
 </resources>

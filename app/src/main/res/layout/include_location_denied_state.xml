@@ -16,12 +16,12 @@
         android:focusableInTouchMode="true">
 
         <ImageView
-            android:id="@+id/empty_state_image_iv"
-            android:layout_width="@dimen/layout_width_near_places_empty_state_image"
-            android:layout_height="@dimen/layout_height_near_places_empty_state_image"
+            android:id="@+id/location_denied_state_image_iv"
+            android:layout_width="@dimen/layout_width_near_places_location_denied_state_image"
+            android:layout_height="@dimen/layout_height_near_places_location_denied_state_image"
             android:importantForAccessibility="no"
-            android:src="@drawable/icon_restaurant"
-            app:layout_constraintBottom_toTopOf="@id/empty_state_title_tv"
+            android:src="@drawable/icon_location_off"
+            app:layout_constraintBottom_toTopOf="@id/location_denied_state_title_tv"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -30,19 +30,19 @@
             app:tint="@color/lightGreen" />
 
         <TextView
-            android:id="@+id/empty_state_title_tv"
+            android:id="@+id/location_denied_state_title_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/margin_horizontal_near_places_empty_state_title"
+            android:layout_marginHorizontal="@dimen/margin_horizontal_near_places_location_denied_state_title"
             android:gravity="center_horizontal"
             android:lines="1"
-            android:text="@string/empty_state_title_text"
+            android:text="@string/location_denied_state_title_text"
             android:textColor="@color/lightGreen"
-            android:textSize="@dimen/text_size_near_places_empty_state_title"
+            android:textSize="@dimen/text_size_near_places_location_denied_state_title"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/empty_state_image_iv" />
+            app:layout_constraintTop_toBottomOf="@id/location_denied_state_image_iv" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

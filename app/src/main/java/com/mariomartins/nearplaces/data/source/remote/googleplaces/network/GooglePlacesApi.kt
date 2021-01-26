@@ -1,6 +1,5 @@
 package com.mariomartins.nearplaces.data.source.remote.googleplaces.network
 
-import com.mariomartins.nearplaces.BuildConfig
 import com.mariomartins.nearplaces.data.source.remote.googleplaces.response.PlaceResponse
 import com.mariomartins.nearplaces.data.source.remote.googleplaces.response.ResponseWrapper
 import kotlinx.coroutines.Deferred
@@ -16,7 +15,7 @@ interface GooglePlacesApi {
         @Query("location") location: String,
         @Query("radius") radius: Int = DEFAULT_RADIUS,
         @Query("type") type: String,
-        @Query("key") key: String = BuildConfig.GOOGLE_API_KEY,
-        @Query("pagetoken") pageToken: String? = null
+        @Query("pagetoken") pageToken: String? = null,
+        @Query("key") key: String
     ): Deferred<ResponseWrapper<PlaceResponse>>
 }

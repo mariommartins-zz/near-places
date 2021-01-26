@@ -33,10 +33,10 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginEnd="@dimen/margin_end_near_places_app_name"
                     android:text="@string/app_name"
                     android:textColor="@color/white"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/text_size_near_places_app_name"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/near_places_categories_sp"
@@ -57,7 +57,8 @@
                     style="@style/Widget.AppCompat.Spinner"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginEnd="@dimen/margin_end_near_places_categories"
+                    android:layout_marginBottom="@dimen/margin_bottom_near_places_categories"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -92,11 +93,24 @@
             layout="@layout/include_empty_state"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/near_places_toolbar"
             app:present="@{ viewModel.emptyStateIsVisible }" />
+
+        <include
+            android:id="@+id/near_places_location_denied_state"
+            layout="@layout/include_location_denied_state"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/near_places_toolbar"
+            app:present="@{ viewModel.locationPermissionDenied }" />
 
         <com.airbnb.lottie.LottieAnimationView
             goneUnless="@{ viewModel.locationAnimationIsVisible }"

@@ -26,10 +26,11 @@ import com.google.android.gms.location.LocationServices
 import com.mariomartins.nearplaces.R
 import com.mariomartins.nearplaces.connectivity.ErrorHandlingFragment
 import com.mariomartins.nearplaces.databinding.FragmentNearPlacesBinding
+import com.mariomartins.nearplaces.domain.model.Place
 import com.mariomartins.nearplaces.extensions.showWarningSnackbar
+import com.mariomartins.nearplaces.features.nearplaces.NearPlacesFragmentDirections.Companion.actionNearPlacesToShowPlace
 import com.mariomartins.nearplaces.features.nearplaces.adapter.PlacesPagedAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
-
 
 class NearPlacesFragment : ErrorHandlingFragment(), LocationListener {
 
@@ -69,7 +70,7 @@ class NearPlacesFragment : ErrorHandlingFragment(), LocationListener {
             val categoryArray = resources.getStringArray(R.array.near_places_category_array)
             val arrayAdapter = ArrayAdapter(context, simple_spinner_dropdown_item, categoryArray)
             arrayAdapter.setDropDownViewResource(simple_spinner_dropdown_item)
-            onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
+            onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onNothingSelected(parent: AdapterView<*>?) = Unit
 
                 override fun onItemSelected(
@@ -90,16 +91,27 @@ class NearPlacesFragment : ErrorHandlingFragment(), LocationListener {
             layoutTransition?.enableTransitionType(LayoutTransition.CHANGING)
         }
 
-        placesPagedAdapter = PlacesPagedAdapter(viewLifecycleOwner)
+        placesPagedAdapter = PlacesPagedAdapter(viewLifecycleOwner, ::onItemClicked)
         nearPlacesResultsRv.adapter = placesPagedAdapter
     }
 
-    private fun observeEvents() {
+    private fun observeEvents() = with(viewModel) {
+        requestPermissionEvent.observe(viewLifecycleOwner) {
+            context?.let { accessLocationPermissionStatus(it) }
+        }
+
         viewModel.places.observe(viewLifecycleOwner) { placesPagedAdapter.submitList(it) }
 
         viewModel.progressIsVisible.observe(viewLifecycleOwner) {
             binding.nearPlacesResultsSrl.isRefreshing = it
         }
+    }
+
+    private fun onItemClicked(place: Place) {
+        val userLocation = viewModel.currentLocation ?: return
+        place.latLng ?: return
+
+        navController.navigate(actionNearPlacesToShowPlace(userLocation, place))
     }
 
     private fun accessLocationPermissionStatus(context: Context): Boolean =
@@ -122,8 +134,11 @@ class NearPlacesFragment : ErrorHandlingFragment(), LocationListener {
         val context = context ?: return
         AlertDialog.Builder(context)
             .setMessage(R.string.near_places_loaction_dialog_body)
-            .setPositiveButton(R.string.near_places_dialog_yes) { _, _ -> accessLocationPermissionStatus(context) }
+            .setPositiveButton(R.string.near_places_dialog_yes) { _, _ ->
+                accessLocationPermissionStatus(context)
+            }
             .setNeutralButton(R.string.near_places_dialog_cancel) { _, _ ->
+                viewModel.onLocationPermissionDenied()
                 showWarningSnackbar(binding.root, R.string.location_error_text)
             }
             .create()

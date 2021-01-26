@@ -9,5 +9,31 @@
     <fragment
         android:id="@+id/near_places"
         android:name="com.mariomartins.nearplaces.features.nearplaces.NearPlacesFragment"
-        tools:layout="@layout/fragment_near_places" />
+        tools:layout="@layout/fragment_near_places">
+
+        <action
+            android:id="@+id/action_near_places_to_show_place"
+            app:destination="@id/show_place"
+            app:enterAnim="@anim/translate_slide_in_right"
+            app:exitAnim="@anim/translate_hold_still"
+            app:popEnterAnim="@anim/translate_hold_still"
+            app:popExitAnim="@anim/translate_slide_out_right" />
+    </fragment>
+
+    <!-- Show Place -->
+    <dialog
+        android:id="@+id/show_place"
+        android:name="com.mariomartins.nearplaces.features.showplace.ShowPlaceDialogFragment"
+        tools:layout="@layout/dialog_show_place">
+
+        <argument
+            android:name="userLocation"
+            app:argType="com.google.android.gms.maps.model.LatLng"
+            app:nullable="false" />
+
+        <argument
+            android:name="place"
+            app:argType="com.mariomartins.nearplaces.domain.model.Place"
+            app:nullable="false" />
+    </dialog>
 </navigation>

@@ -1,6 +1,5 @@
 package com.mariomartins.nearplaces.domain.dispatchers
 
-import com.mariomartins.nearplaces.domain.dispatchers.DispatcherMap
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 

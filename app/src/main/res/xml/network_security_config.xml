@@ -4,7 +4,7 @@
         <trust-anchors>
             <certificates src="system" />
             <!-- Allow user added CAs while in debug mode - for proxying on 24+ -->
-            <certificates src="user"/>
+            <certificates src="user" />
         </trust-anchors>
     </debug-overrides>
     <domain-config cleartextTrafficPermitted="true">

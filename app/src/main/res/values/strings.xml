@@ -4,6 +4,9 @@
     <!-- Empty State -->
     <string name="empty_state_title_text">No results to show</string>
 
+    <!-- Location Denied State -->
+    <string name="location_denied_state_title_text">Location permission denied</string>
+
     <!-- Warnings -->
     <string name="network_error_text">No internet connection. Try again after checking your internet connection.</string>
     <string name="generic_error_text">It was not possible to complete your request.</string>
@@ -24,4 +27,9 @@
         <item>Cafe</item>
         <item>Restaurant</item>
     </string-array>
+
+    <!-- Show Place -->
+    <string name="show_place_user_marker_title">You</string>
+    <string name="show_place_open">OPEN</string>
+    <string name="show_place_closed">CLOSED</string>
 </resources>

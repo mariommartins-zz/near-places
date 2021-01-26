@@ -1,5 +1,6 @@
 package com.mariomartins.nearplaces.domain.model.mapper
 
+import com.google.android.gms.maps.model.LatLng
 import com.mariomartins.nearplaces.data.source.remote.googleplaces.response.PlaceResponse
 import com.mariomartins.nearplaces.domain.model.Place
 
@@ -12,7 +13,15 @@ class PlaceMapper : PlaceMapperAlias {
             name = input.name ?: return null,
             imageUrl = input.icon,
             isOpen = input.openingHours?.openNow ?: false,
-            rating = input.rating
+            rating = input.rating,
+            latLng = getLatLngFrom(input)
         )
+    }
+
+    private fun getLatLngFrom(input: PlaceResponse): LatLng? {
+        val lat = input.geometry?.location?.lat ?: return null
+        val lng = input.geometry.location.lng ?: return null
+
+        return LatLng(lat, lng)
     }
 }

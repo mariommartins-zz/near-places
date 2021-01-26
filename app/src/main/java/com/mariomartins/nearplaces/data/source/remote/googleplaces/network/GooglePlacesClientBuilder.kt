@@ -12,5 +12,6 @@ object GooglePlacesClientBuilder : BaseClientBuilder<GooglePlacesApi>() {
     override fun buildApiClient(): GooglePlacesApi =
         buildRetrofit().create(GooglePlacesApi::class.java)
 
-    override fun buildMoshiAdapter(): Moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
+    override fun buildMoshiAdapter(): Moshi =
+        Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
 }

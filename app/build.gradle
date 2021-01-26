@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'androidx.navigation.safeargs.kotlin'
 
@@ -16,7 +17,6 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         buildConfigField 'String', 'GOOGLE_PLACES_URL', '"https://maps.googleapis.com/maps/api/place/"'
-        buildConfigField 'String', 'GOOGLE_API_KEY', "${project.properties['GOOGLE_API_KEY']}"
     }
 
     buildTypes {

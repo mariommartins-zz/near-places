@@ -7,5 +7,5 @@ object PlacesDiffItemCallback : DiffUtil.ItemCallback<Place>() {
 
     override fun areItemsTheSame(oldItem: Place, newItem: Place) = oldItem.id == newItem.id
 
-    override fun areContentsTheSame(oldItem: Place, newItem: Place) = oldItem.equals(newItem)
+    override fun areContentsTheSame(oldItem: Place, newItem: Place) = oldItem == newItem
 }

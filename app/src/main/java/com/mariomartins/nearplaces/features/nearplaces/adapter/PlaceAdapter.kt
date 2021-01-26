@@ -7,13 +7,17 @@ import androidx.paging.PagedListAdapter
 import com.mariomartins.nearplaces.databinding.ItemPlaceBinding
 import com.mariomartins.nearplaces.domain.model.Place
 
-class PlacesPagedAdapter(private val lifecycleOwner: LifecycleOwner) :
+class PlacesPagedAdapter(
+    private val lifecycleOwner: LifecycleOwner,
+    private val onItemClicked: (place: Place) -> Unit
+) :
     PagedListAdapter<Place, PlaceViewHolder>(PlacesDiffItemCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         PlaceViewHolder(
             ItemPlaceBinding.inflate(LayoutInflater.from(parent.context), parent, false),
-            lifecycleOwner
+            lifecycleOwner,
+            onItemClicked
         )
 
     override fun onBindViewHolder(holder: PlaceViewHolder, position: Int) {

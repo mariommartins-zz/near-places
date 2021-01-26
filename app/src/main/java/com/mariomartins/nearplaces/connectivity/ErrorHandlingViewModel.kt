@@ -3,9 +3,9 @@ package com.mariomartins.nearplaces.connectivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mariomartins.nearplaces.domain.dispatchers.DispatcherMap
 import com.mariomartins.nearplaces.connectivity.Cause.ERROR
 import com.mariomartins.nearplaces.connectivity.Cause.NO_INTERNET
+import com.mariomartins.nearplaces.domain.dispatchers.DispatcherMap
 import com.mariomartins.nearplaces.tools.SingleLiveEvent
 import com.squareup.moshi.JsonDataException
 import kotlinx.coroutines.launch
@@ -42,8 +42,9 @@ abstract class ErrorHandlingViewModel(private val dispatcherMap: DispatcherMap) 
                 onLoadException(ERROR, onError)
             } catch (exception: NoSuchElementException) {
                 onLoadException(ERROR, onError)
-            } catch (e: Exception) {
-                e.printStackTrace()
+            } catch (exception: IllegalStateException) {
+                onError(ERROR)
+                exception.printStackTrace()
             }
         }
     }
