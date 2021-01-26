@@ -46,6 +46,6 @@
 
     <!-- Show Place -->
     <dimen name="margin_show_place_open_status">16dp</dimen>
-    <dimen name="text_size_show_place_open_status">12sp</dimen>
+    <dimen name="text_size_show_place_open_status">14sp</dimen>
 
 </resources>
