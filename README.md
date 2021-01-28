@@ -22,10 +22,10 @@ This project was made in Kotlin unsing AndroidX and uses the following libs (the
 - **Mockito for unit testing**
 
 ## Functionality
-This is a single-activity app that uses the device location, fetch the nearby places using Google Places API and display a paged list of results.
+This is a single-activity app that uses the device location to fetch the nearby places using Google Places API and display a paged list of results.
 Users will be able to select between 3 categories -> Cafes, Bars and Restaurants.
-The app shows the ratings of the place and a icon that states if it's open or not.
-The app has a cache system in order to avoid multiple calls to the server for the same location/page.
+Each listed item shows the rating of the place and an icon that states if it's open or not. In case this item is clicked the place location is showed in a map.
+The app has a static cache system in order to avoid multiple calls to the server for the same location/page.
 
 ## Endpoint documentation
 
