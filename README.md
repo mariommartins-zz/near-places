@@ -47,12 +47,13 @@ The `results` object is an array of place results.
 - Find icon of a place at `results[].icon`
 - Find the open status of a place at `results[].openingHours?.openNow`
 - Find rating of a place at `results[].rating`
+- Find location of a place at `results[].geometry.location`
 
 ## Notes
 - This was built to be maintained for a while.
 - The architecture used was MVVM, with DataSources & Repositories.
 - The code design and style was intended to be consistent and reasonable
 - Please add your own Google Api Key
-- The instrumented tests stopped working for some lib related issue and is going to be fixed in next implementations
+- **The instrumented tests stopped working for some lib related issue and is going to be fixed in next implementations**
 
 Please ask if you have any questions!
