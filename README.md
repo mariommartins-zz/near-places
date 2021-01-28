@@ -52,5 +52,6 @@ The `results` object is an array of place results.
 - The architecture used was MVVM, with DataSources & Repositories.
 - The code design and style was intended to be consistent and reasonable
 - Please add your own Google Api Key
+- The instrumented tests stopped working for some lib related issue and is going to be fixed in next implementations
 
 Please ask if you have any questions!
