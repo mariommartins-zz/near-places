@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
@@ -18,6 +19,7 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.model.*
 import com.mariomartins.nearplaces.R
 import com.mariomartins.nearplaces.databinding.DialogShowPlaceBinding
+import com.mariomartins.nearplaces.extensions.getScreenWidth
 
 
 class ShowPlaceDialogFragment : DialogFragment() {
@@ -43,6 +45,14 @@ class ShowPlaceDialogFragment : DialogFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setupMap()
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        // Adding the height as the screen width to make the Dialog square
+        val height = getScreenWidth()
+        dialog?.window?.setLayout(MATCH_PARENT, height)
     }
 
     private fun setupMap() {

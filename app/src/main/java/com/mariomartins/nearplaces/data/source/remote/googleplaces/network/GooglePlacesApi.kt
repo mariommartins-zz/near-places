@@ -6,7 +6,7 @@ import kotlinx.coroutines.Deferred
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-private const val DEFAULT_RADIUS = 500
+private const val DEFAULT_RADIUS = 1000
 
 interface GooglePlacesApi {
 

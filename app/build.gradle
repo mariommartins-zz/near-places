@@ -38,6 +38,10 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    testOptions {
+        animationsDisabled = true
+    }
 }
 
 dependencies {
